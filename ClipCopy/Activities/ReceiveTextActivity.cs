@@ -2,14 +2,19 @@ using Android.Content;
 
 namespace ClipCopy.Activities;
 
-[Activity(Label = "@string/clipboard", Name = $"com.ezioleq.{nameof(ReceiveTextActivity)}", Exported = true, Theme = "@style/Theme.Transparent")]
+[Activity(
+    Label = "@string/clipboard",
+    Name = $"com.ezioleq.{nameof(ReceiveTextActivity)}",
+    Theme = "@style/Theme.Transparent",
+    Exported = true
+)]
 [IntentFilter(new[]
 {
     Intent.ActionSend
 }, Categories = new[]
 {
     Intent.CategoryDefault
-}, DataMimeType = "text/*")]
+}, DataMimeType = Constants.SupportedMimeType)]
 public class ReceiveTextActivity : Activity
 {
     protected override void OnStart()
