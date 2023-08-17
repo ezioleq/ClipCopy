@@ -2,19 +2,25 @@ using Android.Content;
 
 namespace ClipCopy.Activities;
 
+/// <summary>
+/// Activity for receiving strings from other applications.
+/// </summary>
 [Activity(
     Label = "@string/clipboard",
     Name = $"com.ezioleq.{nameof(ReceiveTextActivity)}",
     Theme = "@style/Theme.Transparent",
     Exported = true
 )]
-[IntentFilter(new[]
-{
-    Intent.ActionSend
-}, Categories = new[]
-{
-    Intent.CategoryDefault
-}, DataMimeType = Constants.SupportedMimeType)]
+[IntentFilter(
+    new[]
+    {
+        Intent.ActionSend
+    }, Categories = new[]
+    {
+        Intent.CategoryDefault
+    },
+    DataMimeType = Constants.SupportedMimeType
+)]
 public class ReceiveTextActivity : Activity
 {
     protected override void OnStart()
