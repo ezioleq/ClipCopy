@@ -2,7 +2,7 @@ using Android.Content;
 
 namespace ClipCopy.Activities;
 
-[Activity(Name = $"com.ezioleq.{nameof(ReceiveTextActivity)}", Exported = true, Theme = "@style/Theme.Transparent")]
+[Activity(Label = "@string/clipboard", Name = $"com.ezioleq.{nameof(ReceiveTextActivity)}", Exported = true, Theme = "@style/Theme.Transparent")]
 [IntentFilter(new[]
 {
     Intent.ActionSend
