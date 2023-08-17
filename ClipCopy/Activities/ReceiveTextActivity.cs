@@ -1,6 +1,6 @@
 using Android.Content;
 
-namespace ClipClop.Activities;
+namespace ClipCopy.Activities;
 
 [Activity(Name = $"com.ezioleq.{nameof(ReceiveTextActivity)}", Exported = true, Theme = "@style/Theme.Transparent")]
 [IntentFilter(new[]

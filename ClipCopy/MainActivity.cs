@@ -1,4 +1,4 @@
-namespace ClipClop;
+namespace ClipCopy;
 
 [Activity(MainLauncher = true)]
 public class MainActivity : Activity

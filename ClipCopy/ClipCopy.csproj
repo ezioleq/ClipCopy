@@ -5,8 +5,9 @@
         <OutputType>Exe</OutputType>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
-        <ApplicationId>com.companyname.ClipClop</ApplicationId>
+        <ApplicationId>com.ezioleq.ClipCopy</ApplicationId>
         <ApplicationVersion>1</ApplicationVersion>
         <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+        <RootNamespace>ClipCopy</RootNamespace>
     </PropertyGroup>
 </Project>
