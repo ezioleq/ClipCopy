@@ -2,7 +2,7 @@ using ClipCopy.Models;
 using ClipCopy.Database;
 using Microsoft.EntityFrameworkCore;
 
-namespace ClipCopy;
+namespace ClipCopy.Activities;
 
 [Activity(MainLauncher = true)]
 public class MainActivity : Activity
