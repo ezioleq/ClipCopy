@@ -1,6 +1,9 @@
 using Android.Content;
 using Android.Util;
+using ClipCopy.Database;
+using ClipCopy.Models;
 using ClipCopy.Resources;
+using Microsoft.EntityFrameworkCore;
 
 namespace ClipCopy.Activities;
 
@@ -52,6 +55,8 @@ public class ReceiveTextActivity : Activity
 
         var toastMessage = string.Format(Localization.clipboard_copied, receivedText);
         ShowToast(toastMessage);
+
+        Task.Run(async () => await RegisterClip(receivedText));
     }
 
     /// <summary>
@@ -112,5 +117,38 @@ public class ReceiveTextActivity : Activity
             Log.Error(Tag, $"Failed create toast message with content '{message}'");
 
         toast?.Show();
+    }
+
+    /// <summary>
+    /// Register clip text in the database.
+    /// </summary>
+    /// <param name="clipText">Clipboard text to save.</param>
+    private static async Task RegisterClip(string clipText)
+    {
+        await using var dbContext = new DatabaseContext(new ConnectionString());
+
+        var previousEntry = await dbContext.ClipEntries.FirstOrDefaultAsync(entry => entry.TextContent == clipText);
+
+        if (previousEntry is not null)
+        {
+            previousEntry.ModificationTimeUtc = DateTime.UtcNow;
+
+            dbContext.Update(previousEntry);
+            await dbContext.SaveChangesAsync();
+
+            return;
+        }
+
+        var entry = new ClipEntry()
+        {
+            Id = new Guid(),
+            TextContent = clipText,
+            IsPinned = false,
+            CreationTimeUtc = DateTime.UtcNow,
+            ModificationTimeUtc = DateTime.UtcNow
+        };
+
+        await dbContext.AddAsync(entry);
+        await dbContext.SaveChangesAsync();
     }
 }
