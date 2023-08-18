@@ -27,7 +27,6 @@ public class DatabaseContext : DbContext
     /// <see cref="DatabaseContext"/> constructor.
     /// <param name="connectionString">Database connection string implementation.</param>
     /// </summary>
-    /// <exception cref="IOException">Failed to get application's data directory.</exception>
     public DatabaseContext(IConnectionString connectionString)
     {
         _connectionString = connectionString.GetString();

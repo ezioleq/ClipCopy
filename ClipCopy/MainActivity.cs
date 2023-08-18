@@ -17,6 +17,9 @@ public class MainActivity : Activity
         SetContentView(Resource.Layout.activity_main);
     }
 
+    /// <summary>
+    /// TODO: Remove this :)
+    /// </summary>
     private static void TestDbUsage()
     {
         using var dbContext = new DatabaseContext(new ConnectionString());
