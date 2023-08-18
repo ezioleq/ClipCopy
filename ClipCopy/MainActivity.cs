@@ -19,7 +19,7 @@ public class MainActivity : Activity
 
     private static void TestDbUsage()
     {
-        using var dbContext = new DatabaseContext(Constants.ApplicationDataDir);
+        using var dbContext = new DatabaseContext(new ConnectionString());
         dbContext.Database.Migrate();
 
         var clipEntry = new ClipEntry()
