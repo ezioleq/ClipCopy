@@ -11,28 +11,22 @@ public class ConnectionString : IConnectionString
 
     public string GetString()
     {
-        var path = Path.Join(GetDataDirPath(), DatabaseFilename);
+        var path = Path.Join(GetFilesDirPath(), DatabaseFilename);
 
         return $"Filename={path}";
     }
 
     /// <summary>
-    /// Get application's data directory path.
+    /// Get application's files directory path.
     /// </summary>
-    /// <exception cref="NotSupportedException">When method is called on API under 24 (Nougat).</exception>
-    /// <exception cref="IOException">When gathered data directory is null or empty.</exception>
-    /// <returns>Application's data directory path.</returns>
-    private static string GetDataDirPath()
+    /// <exception cref="IOException">When gathered files directory is null or empty.</exception>
+    /// <returns>Application's files directory path.</returns>
+    private static string GetFilesDirPath()
     {
-        if (Build.VERSION.SdkInt < BuildVersionCodes.N)
-            throw new NotSupportedException("Minimum required Android API version to get DataDir is 24 (Nougat)");
-
-#pragma warning disable CA1416
-        var dataDir = Application.Context.DataDir?.Path;
-#pragma warning restore CA1416
+        var dataDir = Application.Context.FilesDir?.Path;
 
         if (string.IsNullOrEmpty(dataDir))
-            throw new IOException("Failed to get application's data directory path");
+            throw new IOException("Failed to get application's files directory path");
 
         return dataDir;
     }
