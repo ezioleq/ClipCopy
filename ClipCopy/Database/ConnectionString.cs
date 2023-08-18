@@ -1,7 +1,6 @@
 using Android.OS;
-using ClipCopy.Database;
 
-namespace ClipCopy;
+namespace ClipCopy.Database;
 
 /// <summary>
 /// Implementation of the <see cref="IConnectionString"/> for Android system.
