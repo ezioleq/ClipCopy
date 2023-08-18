@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="clipboard">Schowek</string>
-    <string name="clipboard_send_to">Wyślij do schowka</string>
 </resources>

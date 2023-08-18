@@ -1,5 +1,4 @@
 <resources>
     <string name="app_name" translatable="false">ClipCopy</string>
     <string name="clipboard">Clipboard</string>
-    <string name="clipboard_send_to">Send to clipboard</string>
 </resources>
