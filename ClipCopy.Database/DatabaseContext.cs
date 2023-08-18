@@ -13,35 +13,28 @@ public class DatabaseContext : DbContext
     /// </summary>
     public DbSet<ClipEntry> ClipEntries { get; set; } = null!;
 
-    private string DatabasePath { get; }
-    private const string DatabaseFilename = "database.db";
+    private readonly string _connectionString;
 
     /// <summary>
     /// Default constructor.
     /// </summary>
     public DatabaseContext()
     {
-        DatabasePath = DatabaseFilename;
+        _connectionString = string.Empty;
     }
 
     /// <summary>
-    /// Default <see cref="DatabaseContext"/> constructor.
-    /// <param name="applicationDataDir">Application's data directory path.</param>
+    /// <see cref="DatabaseContext"/> constructor.
+    /// <param name="connectionString">Database connection string implementation.</param>
     /// </summary>
     /// <exception cref="IOException">Failed to get application's data directory.</exception>
-    public DatabaseContext(string? applicationDataDir)
+    public DatabaseContext(IConnectionString connectionString)
     {
-        // var path = Application.Context.FilesDir?.Path;
-
-        if (string.IsNullOrEmpty(applicationDataDir))
-            // This SHOULDN'T happen.
-            throw new IOException("Failed to get Data Files Directory path");
-
-        DatabasePath = Path.Join(applicationDataDir, DatabaseFilename);
+        _connectionString = connectionString.GetString();
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlite($"Filename={DatabasePath}");
+        optionsBuilder.UseSqlite(_connectionString);
     }
 }
