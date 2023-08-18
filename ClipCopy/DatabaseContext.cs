@@ -28,7 +28,7 @@ public class DatabaseContext : DbContext
             // This SHOULDN'T happen.
             throw new IOException("Failed to get Data Files Directory path");
 
-        DatabasePath = Path.Join(DatabasePath, DatabaseFilename);
+        DatabasePath = Path.Join(path, DatabaseFilename);
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
