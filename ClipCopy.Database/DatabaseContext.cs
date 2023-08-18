@@ -1,7 +1,7 @@
 using ClipCopy.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace ClipCopy;
+namespace ClipCopy.Database;
 
 /// <summary>
 /// Application database context.
@@ -17,18 +17,27 @@ public class DatabaseContext : DbContext
     private const string DatabaseFilename = "database.db";
 
     /// <summary>
-    /// Default <see cref="DatabaseContext"/> constructor.
+    /// Default constructor.
     /// </summary>
-    /// <exception cref="IOException">Failed to get application's data directory.</exception>
     public DatabaseContext()
     {
-        var path = Application.Context.FilesDir?.Path;
+        DatabasePath = DatabaseFilename;
+    }
 
-        if (string.IsNullOrEmpty(path))
+    /// <summary>
+    /// Default <see cref="DatabaseContext"/> constructor.
+    /// <param name="applicationDataDir">Application's data directory path.</param>
+    /// </summary>
+    /// <exception cref="IOException">Failed to get application's data directory.</exception>
+    public DatabaseContext(string? applicationDataDir)
+    {
+        // var path = Application.Context.FilesDir?.Path;
+
+        if (string.IsNullOrEmpty(applicationDataDir))
             // This SHOULDN'T happen.
             throw new IOException("Failed to get Data Files Directory path");
 
-        DatabasePath = Path.Join(path, DatabaseFilename);
+        DatabasePath = Path.Join(applicationDataDir, DatabaseFilename);
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

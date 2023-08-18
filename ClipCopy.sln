@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClipCopy", "ClipCopy\ClipCopy.csproj", "{6AA0EF8D-31D7-4A71-AAB1-75204B1007AC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClipCopy.Database", "ClipCopy.Database\ClipCopy.Database.csproj", "{9C483DF3-C345-4247-9346-22E5A0CD6A59}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -14,5 +16,9 @@ Global
 		{6AA0EF8D-31D7-4A71-AAB1-75204B1007AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6AA0EF8D-31D7-4A71-AAB1-75204B1007AC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6AA0EF8D-31D7-4A71-AAB1-75204B1007AC}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{9C483DF3-C345-4247-9346-22E5A0CD6A59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C483DF3-C345-4247-9346-22E5A0CD6A59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C483DF3-C345-4247-9346-22E5A0CD6A59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C483DF3-C345-4247-9346-22E5A0CD6A59}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
