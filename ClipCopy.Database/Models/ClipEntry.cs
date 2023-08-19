@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace ClipCopy.Models;
+namespace ClipCopy.Database.Models;
 
 /// <summary>
 /// Represents single clip entry.
