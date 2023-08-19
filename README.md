@@ -29,10 +29,6 @@ This application is compatible with a wide range of Android devices.
 
 ### 🏗️ Project sructure
 
-The project is built on top of [MAUI](https://learn.microsoft.com/en-us/dotnet/maui/what-is-maui) which is an [Xamarin](https://learn.microsoft.com/en-us/xamarin/get-started/what-is-xamarin) successor.
-Both of the technologies aren't production ready for real and using them can be often cumbersome.
-This application is using MAUI because of pleasure of using C# language and shreds of previous expierience of developing with Xamarin which is now deprecated.
-
 - `ClipCopy` - Main application project featuring activities, views, services etc.
 - `ClipCopy.Database` - Project for storing models, database context and the most important - migrations, because
 making them with [EntityFramework](https://learn.microsoft.com/en-us/ef/core/) is not supported in the Android project.
