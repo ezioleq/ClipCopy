@@ -68,5 +68,11 @@ namespace ClipCopy.Resources.Localizations {
                 return ResourceManager.GetString("app_name", resourceCulture);
             }
         }
+        
+        internal static string refresh {
+            get {
+                return ResourceManager.GetString("refresh", resourceCulture);
+            }
+        }
     }
 }

@@ -20,4 +20,7 @@
     <data name="clipboard_send_to" xml:space="preserve">
         <value>Wyślij do schowka</value>
     </data>
+    <data name="refresh" xml:space="preserve">
+        <value>Odśwież</value>
+    </data>
 </root>
