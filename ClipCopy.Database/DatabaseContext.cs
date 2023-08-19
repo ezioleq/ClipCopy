@@ -1,4 +1,4 @@
-using ClipCopy.Models;
+using ClipCopy.Database.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace ClipCopy.Database;
