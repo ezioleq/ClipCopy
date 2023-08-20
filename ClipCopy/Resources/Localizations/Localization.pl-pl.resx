@@ -23,4 +23,7 @@
     <data name="refresh" xml:space="preserve">
         <value>Odśwież</value>
     </data>
+    <data name="settings" xml:space="preserve">
+        <value>Ustawienia</value>
+    </data>
 </root>

@@ -74,5 +74,11 @@ namespace ClipCopy.Resources.Localizations {
                 return ResourceManager.GetString("refresh", resourceCulture);
             }
         }
+        
+        internal static string settings {
+            get {
+                return ResourceManager.GetString("settings", resourceCulture);
+            }
+        }
     }
 }
