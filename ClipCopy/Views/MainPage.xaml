@@ -9,30 +9,28 @@
         <model:MainPageViewModel />
     </ContentPage.BindingContext>
 
-    <ScrollView>
-        <Grid RowSpacing="32" Padding="16, 16">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="auto" />
-            </Grid.RowDefinitions>
+    <Grid RowSpacing="32" Padding="16, 16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
 
-            <Label Grid.Row="0"
-                   Text="{x:Static resx:Localization.app_name}"
-                   SemanticProperties.HeadingLevel="Level1"
-                   FontSize="24"
-                   HorizontalOptions="Center" />
+        <Label Grid.Row="0"
+               Text="{x:Static resx:Localization.app_name}"
+               SemanticProperties.HeadingLevel="Level1"
+               FontSize="24"
+               HorizontalOptions="Center" />
 
-            <ListView Grid.Row="1" ItemsSource="{Binding ClipEntries}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <TextCell Text="{Binding TextContent}" Detail="{Binding ModificationTimeUtc}" />
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+        <ListView Grid.Row="1" ItemsSource="{Binding ClipEntries}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding TextContent}" Detail="{Binding ModificationTimeUtc}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
 
-            <Button Grid.Row="2" Text="{x:Static resx:Localization.refresh}" VerticalOptions="Center" Command="{Binding RefreshCommand}" />
-        </Grid>
-    </ScrollView>
+        <Button Grid.Row="2" Text="{x:Static resx:Localization.refresh}" VerticalOptions="Center" Command="{Binding RefreshCommand}" />
+    </Grid>
 
 </ContentPage>
