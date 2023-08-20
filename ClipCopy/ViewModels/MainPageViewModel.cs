@@ -3,18 +3,30 @@ using System.Windows.Input;
 using ClipCopy.Database;
 using ClipCopy.Database.Models;
 using ClipCopy.Platforms.Android.Database;
+using ClipCopy.Views;
 
 namespace ClipCopy.ViewModels;
 
 public class MainPageViewModel : ContentPage
 {
+    private readonly INavigation _navigation;
+
     public ICommand RefreshCommand { get; }
+
+    public ICommand SettingsCommand { get; }
 
     public ObservableCollection<ClipEntry> ClipEntries { get; set; } = new();
 
-    public MainPageViewModel()
+    public MainPageViewModel() : this(null)
     {
+    }
+
+    public MainPageViewModel(INavigation? navigation)
+    {
+        _navigation = navigation ?? Navigation;
+
         RefreshCommand = new Command(Refresh);
+        SettingsCommand = new Command(GoToSettings);
 
         Refresh();
     }
@@ -28,5 +40,13 @@ public class MainPageViewModel : ContentPage
 
         foreach (var entry in entries)
             ClipEntries.Add(entry);
+    }
+
+    private async void GoToSettings()
+    {
+        if (_navigation.NavigationStack[^1] is SettingsPage)
+            return;
+
+        await _navigation.PushAsync(new SettingsPage());
     }
 }

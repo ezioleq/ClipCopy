@@ -1,36 +1,47 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:model="clr-namespace:ClipCopy.ViewModels"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:ClipCopy.ViewModels"
              xmlns:resx="clr-namespace:ClipCopy.Resources.Localizations"
              x:Class="ClipCopy.Views.MainPage">
     <ContentPage.BindingContext>
         <model:MainPageViewModel />
     </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid RowSpacing="32" Padding="16, 16">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
 
-    <Grid RowSpacing="32" Padding="16, 16">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="auto" />
-        </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Text="{x:Static resx:Localization.app_name}"
+                       SemanticProperties.HeadingLevel="Level1"
+                       FontSize="24"
+                       HorizontalOptions="Start"
+                       VerticalOptions="Center" />
+                <Button Grid.Column="1" Text="{x:Static resx:Localization.settings}" HorizontalOptions="End"
+                        Command="{Binding SettingsCommand}">
+                </Button>
+            </Grid>
 
-        <Label Grid.Row="0"
-               Text="{x:Static resx:Localization.app_name}"
-               SemanticProperties.HeadingLevel="Level1"
-               FontSize="24"
-               HorizontalOptions="Center" />
+            <ListView Grid.Row="1" ItemsSource="{Binding ClipEntries}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding TextContent}" Detail="{Binding ModificationTimeUtc}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
 
-        <ListView Grid.Row="1" ItemsSource="{Binding ClipEntries}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <TextCell Text="{Binding TextContent}" Detail="{Binding ModificationTimeUtc}" />
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-
-        <Button Grid.Row="2" Text="{x:Static resx:Localization.refresh}" VerticalOptions="Center" Command="{Binding RefreshCommand}" />
-    </Grid>
-
+            <Button Grid.Row="2" Text="{x:Static resx:Localization.refresh}" VerticalOptions="Center"
+                    Command="{Binding RefreshCommand}" />
+        </Grid>
+    </ContentPage.Content>
 </ContentPage>
