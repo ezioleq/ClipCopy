@@ -44,7 +44,7 @@ public class MainPageViewModel : ContentPage
 
     private async void GoToSettings()
     {
-        if (_navigation.NavigationStack[^1] is SettingsPage)
+        if (_navigation.NavigationStack.Last() is SettingsPage)
             return;
 
         await _navigation.PushAsync(new SettingsPage());
