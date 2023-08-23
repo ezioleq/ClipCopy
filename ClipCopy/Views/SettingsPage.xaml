@@ -10,6 +10,21 @@
         <model:SettingsPageViewModel />
     </ContentPage.BindingContext>
     <ContentPage.Content>
-
+        <VerticalStackLayout Padding="16, 16">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0"
+                       Text="{x:Static resx:Localization.settings_enable_history}"
+                       HorizontalOptions="Start"
+                       VerticalOptions="Center" />
+                <Switch Grid.Column="1"
+                        IsToggled="{Binding EnableHistory}"
+                        HorizontalOptions="End"
+                        VerticalOptions="Center" />
+            </Grid>
+        </VerticalStackLayout>
     </ContentPage.Content>
 </ContentPage>
