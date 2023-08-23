@@ -12,7 +12,7 @@ With this application you can choose to share a resource directly to your clipbo
 ClipCopy also allows you to save your previous clips and manage them by pinning your favorite entries,
 copying them again or... disable this functionality whole and use it only as a clipboard share target 👍
 
-### ✨ Features
+### ✨ Features (planned)
 
 - Shared clips history
 - Pinning your favorite clips
