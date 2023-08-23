@@ -26,4 +26,7 @@
     <data name="settings" xml:space="preserve">
         <value>Ustawienia</value>
     </data>
+    <data name="settings_enable_history" xml:space="preserve">
+        <value>Włącz historię udostępnionych fragmentów</value>
+    </data>
 </root>

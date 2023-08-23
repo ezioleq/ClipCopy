@@ -80,5 +80,11 @@ namespace ClipCopy.Resources.Localizations {
                 return ResourceManager.GetString("settings", resourceCulture);
             }
         }
+        
+        internal static string settings_enable_history {
+            get {
+                return ResourceManager.GetString("settings_enable_history", resourceCulture);
+            }
+        }
     }
 }
