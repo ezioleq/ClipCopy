@@ -4,8 +4,6 @@ using Android.Util;
 using Android.Widget;
 using ClipCopy.Database;
 using ClipCopy.Database.Models;
-using ClipCopy.Platforms.Android.Database;
-using ClipCopy.Resources;
 using ClipCopy.Resources.Localizations;
 using Microsoft.EntityFrameworkCore;
 
@@ -129,7 +127,8 @@ public class ReceiveTextActivity : Activity
     /// <param name="clipText">Clipboard text to save.</param>
     private static async Task RegisterClip(string clipText)
     {
-        await using var dbContext = new DatabaseContext(new ConnectionString());
+        var connectionString = DependencyService.Get<IConnectionString>();
+        await using var dbContext = new DatabaseContext(connectionString);
 
         var previousEntry = await dbContext.ClipEntries.FirstOrDefaultAsync(entry => entry.TextContent == clipText);
 

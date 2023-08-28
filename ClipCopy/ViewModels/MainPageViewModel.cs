@@ -2,7 +2,6 @@ using System.Collections.ObjectModel;
 using System.Windows.Input;
 using ClipCopy.Database;
 using ClipCopy.Database.Models;
-using ClipCopy.Platforms.Android.Database;
 using ClipCopy.Views;
 
 namespace ClipCopy.ViewModels;
@@ -29,7 +28,8 @@ public class MainPageViewModel : ContentPage
 
     private async void Refresh()
     {
-        await using var dbContext = new DatabaseContext(new ConnectionString());
+        var connectionString = DependencyService.Get<IConnectionString>();
+        await using var dbContext = new DatabaseContext(connectionString);
 
         var entries = dbContext.ClipEntries.ToList();
         ClipEntries.Clear();

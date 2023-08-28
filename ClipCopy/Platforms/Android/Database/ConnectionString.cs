@@ -1,5 +1,7 @@
 using ClipCopy.Database;
 
+[assembly: Dependency(typeof(ClipCopy.Platforms.Android.Database.ConnectionString))]
+
 namespace ClipCopy.Platforms.Android.Database;
 
 /// <summary>

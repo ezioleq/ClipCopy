@@ -2,7 +2,6 @@
 using Android.Runtime;
 using Android.Util;
 using ClipCopy.Database;
-using ClipCopy.Platforms.Android.Database;
 using Microsoft.EntityFrameworkCore;
 
 namespace ClipCopy.Platforms.Android;
@@ -22,7 +21,8 @@ public class MainApplication : MauiApplication
 
     private static void ApplyMigrations()
     {
-        using var dbContext = new DatabaseContext(new ConnectionString());
+        var connectionString = DependencyService.Get<IConnectionString>();
+        using var dbContext = new DatabaseContext(connectionString);
 
         dbContext.Database.Migrate();
         Log.Verbose(Tag, "All pending migrations were applied.");
