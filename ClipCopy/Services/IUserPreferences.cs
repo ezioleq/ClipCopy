@@ -29,6 +29,7 @@ public interface IUserPreferences
     /// Get the value associated with the given key.
     /// </summary>
     /// <param name="key">Key of the value to get.</param>
+    /// <param name="defaultValue">Default value for the key.</param>
     /// <returns>Underlying value of the key.</returns>
-    string Get(string key);
+    string Get(string key, string? defaultValue = null);
 }
