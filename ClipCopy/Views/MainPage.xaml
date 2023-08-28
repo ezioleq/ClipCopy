@@ -2,12 +2,11 @@
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:model="clr-namespace:ClipCopy.ViewModels"
+             xmlns:viewmodels="clr-namespace:ClipCopy.ViewModels"
+             xmlns:models="clr-namespace:ClipCopy.Database.Models;assembly=ClipCopy.Database"
              xmlns:resx="clr-namespace:ClipCopy.Resources.Localizations"
+             x:DataType="viewmodels:MainPageViewModel"
              x:Class="ClipCopy.Views.MainPage">
-    <ContentPage.BindingContext>
-        <model:MainPageViewModel />
-    </ContentPage.BindingContext>
     <ContentPage.Content>
         <Grid RowSpacing="32" Padding="16, 16">
             <Grid.RowDefinitions>
@@ -33,7 +32,7 @@
 
             <ListView Grid.Row="1" ItemsSource="{Binding ClipEntries}">
                 <ListView.ItemTemplate>
-                    <DataTemplate>
+                    <DataTemplate x:DataType="models:ClipEntry">
                         <TextCell Text="{Binding TextContent}" Detail="{Binding ModificationTimeUtc}" />
                     </DataTemplate>
                 </ListView.ItemTemplate>

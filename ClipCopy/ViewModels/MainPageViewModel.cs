@@ -17,13 +17,9 @@ public class MainPageViewModel : ContentPage
 
     public ObservableCollection<ClipEntry> ClipEntries { get; set; } = new();
 
-    public MainPageViewModel() : this(null)
+    public MainPageViewModel(MainPage page)
     {
-    }
-
-    public MainPageViewModel(INavigation? navigation)
-    {
-        _navigation = navigation ?? Navigation;
+        _navigation = page.Navigation;
 
         RefreshCommand = new Command(Refresh);
         SettingsCommand = new Command(GoToSettings);
