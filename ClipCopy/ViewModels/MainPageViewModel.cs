@@ -16,6 +16,18 @@ public class MainPageViewModel : ContentPage
 
     public ObservableCollection<ClipEntry> ClipEntries { get; set; } = new();
 
+    private bool _isRefreshing;
+
+    public bool IsRefreshing
+    {
+        get => _isRefreshing;
+        private set
+        {
+            _isRefreshing = value;
+            OnPropertyChanged();
+        }
+    }
+
     public MainPageViewModel(MainPage page)
     {
         _navigation = page.Navigation;
@@ -28,6 +40,11 @@ public class MainPageViewModel : ContentPage
 
     private async void Refresh()
     {
+        if (IsRefreshing)
+            return;
+
+        IsRefreshing = true;
+
         var connectionString = DependencyService.Get<IConnectionString>();
         await using var dbContext = new DatabaseContext(connectionString);
 
@@ -36,6 +53,8 @@ public class MainPageViewModel : ContentPage
 
         foreach (var entry in entries)
             ClipEntries.Add(entry);
+
+        IsRefreshing = false;
     }
 
     private async void GoToSettings()

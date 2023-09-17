@@ -30,16 +30,15 @@
                 </Button>
             </Grid>
 
-            <ListView Grid.Row="1" ItemsSource="{Binding ClipEntries}">
-                <ListView.ItemTemplate>
-                    <DataTemplate x:DataType="models:ClipEntry">
-                        <TextCell Text="{Binding TextContent}" Detail="{Binding ModificationTimeUtc}" />
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-
-            <Button Grid.Row="2" Text="{x:Static resx:Localization.refresh}" VerticalOptions="Center"
-                    Command="{Binding RefreshCommand}" />
+            <RefreshView Grid.Row="1" Command="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing}">
+                <ListView ItemsSource="{Binding ClipEntries}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="models:ClipEntry">
+                            <TextCell Text="{Binding TextContent}" Detail="{Binding ModificationTimeUtc}" />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </RefreshView>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
