@@ -2,6 +2,13 @@
 
 🚀 Share to clipboard with(out) extra steps on your Android device.
 
+![OS](https://img.shields.io/badge/OS-Android-blue)
+![GitHub](https://img.shields.io/github/license/ezioleq/ClipCopy?color=blue)
+![GitHub issues](https://img.shields.io/github/issues/ezioleq/ClipCopy?color=blue)
+![GitHub milestone](https://img.shields.io/github/milestones/progress-percent/ezioleq/ClipCopy/1)
+![GitHub Repo stars](https://img.shields.io/github/stars/ezioleq/ClipCopy)
+![GitHub forks](https://img.shields.io/github/forks/ezioleq/ClipCopy)
+
 Brings back the **Share to Clipboard** feature removed back in Android 10.
 With this application you can choose to share a resource directly to your clipboard and thus copying it.
 
