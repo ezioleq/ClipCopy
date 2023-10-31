@@ -12,7 +12,8 @@
 Brings back the **Share to Clipboard** feature removed back in Android 10.
 With this application you can choose to share a resource directly to your clipboard and thus copying it.
 
-### 🚧 Under construction warning!
+> [!WARNING]
+> The application is under heavy development and not all of its features are currently available.
 
 ## ⚙️ It's not everything...
 
